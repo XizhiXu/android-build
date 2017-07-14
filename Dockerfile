@@ -15,7 +15,6 @@ RUN apt-get -qq update && \
       curl \
       wget \
       unzip \
-      html2text \
       lib32stdc++6 \
       lib32z1
 
