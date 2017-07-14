@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM openjdk:8-jdk
 MAINTAINER Xizhi Xu <xizhi.xu@outlook.com>
 
 ENV VERSION_SDK_TOOLS "3859397"
@@ -15,12 +15,8 @@ RUN apt-get -qq update && \
       curl \
       wget \
       unzip \
-      make \
       html2text \
-      libc6-i386 \
       lib32stdc++6 \
-      lib32gcc1 \
-      lib32ncurses5 \
       lib32z1
 
 # Clean up
