@@ -3,8 +3,8 @@ MAINTAINER Xizhi Xu <xizhi.xu@outlook.com>
 
 ENV VERSION_SDK_TOOLS "3859397"
 
-ENV ANDROID_HOME "/android_sdk"
-ENV PATH "$PATH:${ANDROID_HOME}/tools/"
+ENV ANDROID_HOME /android-sdk
+ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install tools
@@ -40,5 +40,5 @@ RUN mkdir -p $ANDROID_HOME/licenses/ \
 ADD packages ${ANDROID_HOME}
 RUN mkdir -p /root/.android && \
   touch /root/.android/repositories.cfg && \
-  ${ANDROID_HOME}/tools/bin/sdkmanager --update && \
-  (while [ 1 ]; do sleep 5; echo y; done) | ${ANDROID_HOME}/tools/bin/sdkmanager --package_file=${ANDROID_HOME}/packages
+  $ANDROID_HOME/tools/bin/sdkmanager --update && \
+  (while [ 1 ]; do sleep 5; echo y; done) | $ANDROID_HOME/tools/bin/sdkmanager --package_file=$ANDROID_HOME/packages
