@@ -1,0 +1,6 @@
+build-tools
+ndk-bundle
+platform-tools
+platform
+extras;android;m2repository
+extras;google;m2repository
