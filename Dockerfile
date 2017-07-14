@@ -11,6 +11,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get -qq update && \
     apt-get install -qqy --no-install-recommends \
       openjdk-8-jdk \
+      git-all \
       curl \
       wget \
       unzip \
