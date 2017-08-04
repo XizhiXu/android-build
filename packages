@@ -19,3 +19,5 @@ ndk-bundle
 platform-tools
 extras;android;m2repository
 extras;google;m2repository
+extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2
+extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2
