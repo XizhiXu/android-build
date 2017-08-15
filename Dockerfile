@@ -16,7 +16,8 @@ RUN apt-get -qq update && \
       wget \
       unzip \
       lib32stdc++6 \
-      lib32z1
+      lib32z1 \
+      jq
 
 # Clean up
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
