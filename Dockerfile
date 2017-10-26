@@ -24,9 +24,9 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN apt-get clean
 
 # Android sdk tools
-RUN curl -s https://dl.google.com/android/repository/sdk-tools-linux-${VERSION_SDK_TOOLS}.zip > /sdk.zip && \
-    unzip /sdk.zip -d ${ANDROID_HOME} && \
-    rm -v /sdk.zip
+ADD https://dl.google.com/android/repository/sdk-tools-linux-${VERSION_SDK_TOOLS}.zip / 
+RUN unzip /sdk*.zip -d ${ANDROID_HOME} && \
+    rm -v /*.zip
 
 # Agreements
 RUN mkdir -p $ANDROID_HOME/licenses/ \
