@@ -38,4 +38,4 @@ ADD packages ${ANDROID_HOME}
 RUN mkdir -p /root/.android && \
   touch /root/.android/repositories.cfg && \
   $ANDROID_HOME/tools/bin/sdkmanager --update && \
-  (while [ 1 ]; do sleep 5; echo y; done) | $ANDROID_HOME/tools/bin/sdkmanager --package_file=$ANDROID_HOME/packages
+  (while [ 1 ]; do sleep 5; echo y; done) | cat $ANDROID_HOME/packages | xargs $ANDROID_HOME/tools/bin/sdkmanager --verbose
