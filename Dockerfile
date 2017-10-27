@@ -2,10 +2,13 @@ FROM openjdk:8-jdk
 MAINTAINER Xizhi Xu <xizhi.xu@outlook.com>
 
 ENV VERSION_SDK_TOOLS "3859397"
-
 ENV ANDROID_HOME /android-sdk
 ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
 ENV DEBIAN_FRONTEND noninteractive
+
+# Gradle props
+ENV JAVA_OPTS "-Xms4096m -Xmx4096m"
+ENV GRADLE_OPTS "-XX:+UseG1GC -XX:MaxGCPauseMillis=1000"
 
 # Install tools
 RUN apt-get -qq update && \
@@ -16,17 +19,18 @@ RUN apt-get -qq update && \
       wget \
       unzip \
       lib32stdc++6 \
-      lib32z1 \
+      lib32z1 \ 
       jq
 
 # Clean up
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN apt-get clean
 
+
 # Android sdk tools
-ADD https://dl.google.com/android/repository/sdk-tools-linux-${VERSION_SDK_TOOLS}.zip / 
-RUN unzip /sdk*.zip -d ${ANDROID_HOME} && \
-    rm -v /*.zip
+ADD https://dl.google.com/android/repository/sdk-tools-linux-${VERSION_SDK_TOOLS}.zip /sdk.zip
+RUN unzip /sdk.zip -d ${ANDROID_HOME} && \
+    rm -v /sdk.zip
 
 # Agreements
 RUN mkdir -p $ANDROID_HOME/licenses/ \
