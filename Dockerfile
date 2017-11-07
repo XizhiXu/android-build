@@ -23,10 +23,12 @@ RUN apt-get -qq update && \
 	jq \
 	ruby
 
+# Gitlab
+RUN gem install gitlab
+
 # Clean up
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN apt-get clean
-
 
 # Android sdk tools
 ADD https://dl.google.com/android/repository/sdk-tools-linux-${VERSION_SDK_TOOLS}.zip /sdk.zip
