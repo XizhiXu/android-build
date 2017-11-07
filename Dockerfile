@@ -1,5 +1,5 @@
 FROM openjdk:8-jdk
-MAINTAINER Xizhi Xu <xizhi.xu@outlook.com>
+MAINTAINER author="Xizhi Xu" email="xizhi.xu@outlook.com" version="0.1" decription="This is a docker image for android build"
 
 ENV VERSION_SDK_TOOLS "3859397"
 ENV ANDROID_HOME /android-sdk
@@ -12,15 +12,16 @@ ENV GRADLE_OPTS "-XX:+UseG1GC -XX:MaxGCPauseMillis=1000"
 
 # Install tools
 RUN apt-get -qq update && \
-    apt-get install -qqy --no-install-recommends \
-      openjdk-8-jdk \
-      git-all \
-      curl \
-      wget \
-      unzip \
-      lib32stdc++6 \
-      lib32z1 \ 
-      jq
+	apt-get install -qqy --no-install-recommends \
+	openjdk-8-jdk \
+	git-all \
+	curl \
+	wget \
+	unzip \
+	lib32stdc++6 \
+	lib32z1 \
+	jq \
+	ruby
 
 # Clean up
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
