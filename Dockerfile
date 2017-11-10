@@ -13,7 +13,6 @@ ENV GRADLE_OPTS "-XX:+UseG1GC -XX:MaxGCPauseMillis=1000"
 # Install tools
 RUN apt-get -qq update && \
 	apt-get install -qqy --no-install-recommends \
-	openjdk-8-jdk \
 	git-all \
 	curl \
 	wget \
@@ -21,10 +20,7 @@ RUN apt-get -qq update && \
 	lib32stdc++6 \
 	lib32z1 \
 	jq \
-	ruby
-
-# Gitlab
-RUN gem install gitlab
+	python-pip
 
 # Clean up
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
