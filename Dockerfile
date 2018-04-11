@@ -7,7 +7,7 @@ ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platfor
 ENV DEBIAN_FRONTEND noninteractive
 
 # Gradle props
-ENV JAVA_OPTS "-Xms4096m -Xmx4096m"
+ENV JAVA_OPTS "-Xms1g -Xmx4g"
 ENV GRADLE_OPTS "-XX:+UseG1GC -XX:MaxGCPauseMillis=1000"
 
 # Install tools
